@@ -1,0 +1,12 @@
+version: "2.1"
+services:
+  duplicati:
+    image: duplicati/duplicati:latest
+    container_name: duplicati
+    environment:
+      - TZ=Asia/Tokyo
+    volumes:
+      - duplicati-data:/data
+    ports:
+      - 8200:8200
+    restart: unless-stopped
