@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  bitwarden:
+    image: bitwardenrs/server
+    restart: always
+    volumes:
+      - ./data/bitwarden:/data
+    expose:
+      - 80
+    networks:
+      bitwarden:
+        aliases:
+          - bitwarden
+
+  nginx:
+    image: nginx
+    restart: always
+    ports:
+      - 5000:443
+    networks:
+      - bitwarden
+    volumes:
+      - ./data/nginx:/etc/nginx
+      - ./data/ssl:/etc/ssl
+  
+networks:
+  bitwarden:
