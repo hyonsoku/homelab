@@ -6,4 +6,5 @@ my homelab using docker
 
 | service                                 | function              |
 | --------------------------------------- | --------------------- |
+| bitwarden                               | Password manager      |
 | [duplicati](https://www.duplicati.com/) | Backup docker volumes |
