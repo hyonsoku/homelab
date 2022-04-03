@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  esphome:
+    container_name: esphome
+    image: esphome/esphome
+    volumes:
+      - esphome-config:/config:rw
+    environment:
+      - ESPHOME_DASHBOARD_USE_PING=true
+    ports:
+      - 6052:6052
+    restart: unless-stopped
+
+volumes:
+  esphome-config:
