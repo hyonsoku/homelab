@@ -1,0 +1,18 @@
+tasks:
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Upgrade packages
+  apt:
+    upgrade: yes
+    autoremove: yes
+  - name: Install applications
+    apt:
+      name:
+        - curl
+        - git
+        - openssh-server
+        - vim
+        - zsh
+      state: present

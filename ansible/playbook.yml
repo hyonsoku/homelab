@@ -1,0 +1,17 @@
+---
+- name: Playbook
+  hosts: localhost
+  connection: local
+  become: true
+  
+  tasks:
+    - name: Import essential tasks
+      import_tasks: tasks/essentials.yml
+    - name: Docker
+      import_role:
+        name: docker
+    - name: Tailscale
+      import_role:
+        name: tailscale
+      vars:
+        ansible_exit_node: true
